@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+
+import React from 'react';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
+import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+import Home from './components/acceuil';
+import Reverse from './components/reverse';
+import Counteur from './components/counteur';
+
+
+
+
+
+
+class App extends React.Component{
+  render() {
+    return (
+      <div className="container">
+        
+        <Router>
+          <Routes>
+            <Route path="/acceuil" element={<Home />}/> 
+            <Route path="/counteur" element={<Counteur />}/>
+            <Route path="/reverse" element={<Reverse />} />
+          </Routes>
+         
+        </Router>
+        
+      </div>
+    );
+  }
+
 }
-
-export default App;
+export default App
